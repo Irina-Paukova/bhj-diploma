@@ -3,14 +3,24 @@
  * Имеет свойство URL, равно пустой строке.
  * */
 class Entity {
+
+  Entity.URL = "";
   /**
    * Запрашивает с сервера список данных.
    * Это могут быть счета или доходы/расходы
    * (в зависимости от того, что наследуется от Entity)
    * */
-  static list(data, callback){
-
-  }
+  static list(data, callback) {
+    createRequest({
+      url: Entity.URL,
+      data: {
+            mail: data.mail,
+            password: data.password
+            },
+      method: 'GET',
+      callback: callback
+    });
+  };
 
   /**
    * Создаёт счёт или доход/расход с помощью запроса
