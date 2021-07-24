@@ -1,31 +1,59 @@
-/**
- * Основная функция для совершения запросов
- * на сервер.
- * */
 const createRequest = ( options = {} ) => {
+
+    const xhr = new XMLHttpRequest;
+
+    if (!options.callback) {
+        options.callback = function() {};
+    };
+
     try {
-       
-        const xhr = new XMLHttpRequest;
+        let URL = options.url;
 
         if ( options.method === 'GET' ) {
-            xhr.open( 'GET', `${options.url} ? ${options.data.mail} & ${options.data.password}` );
+            URL += encodeURL( options.data );
+
+            xhr.open( 'GET', `${URL}` );
             xhr.responseType = 'json';
             xhr.send();
         } else {
             const  formData = new FormData;
 
-            formData.append( 'mail', `${options.data.mail}` );
-            formData.append( 'password', `${options.data.password}` );
+            for (const [key, value] of Object.entries(options.data)) {
+                formData.append( `${key}`, `${value}` );
+                console.log(`${key}: ${value}`);
+            };
 
             xhr.open( `${options.method}`, `${options.url}` );
-            xhr.responseType = 'json';
+            xhr.responseType = 'json'; 
             xhr.send( formData );  
+
         };
 
-        options.callback( null, xhr.response );
+        if (xhr.readystatechange === 4) {
+            options.callback( null, xhr.response );
+        };
 
     } catch(e) {
         options.callback( e, xhr.response );
         console.log(e);
     };
+
+console.log(xhr);
+
 };
+
+createRequest({
+    url: '',
+    data: {
+      mail: 'ivan@biz.pro',
+      password: 'odinodin',
+    },
+    method: 'POST',
+  });
+
+function encodeURL ( data ) {
+    return '?' + Object.entries( data )
+    .map(([ key, value ]) => `${ key }=${ value }` )
+    .join( '&' );
+};
+
