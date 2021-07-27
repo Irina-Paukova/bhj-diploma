@@ -4,12 +4,15 @@
  * Имеет свойство URL, равное '/user'.
  * */
 class User {
+  static URL = '/user';
+
   /**
    * Устанавливает текущего пользователя в
    * локальном хранилище.
    * */
   static setCurrent(user) {
-
+    console.log(user)
+    window.localStorage.user = JSON.stringify(user);
   }
 
   /**
@@ -17,7 +20,7 @@ class User {
    * пользователе из локального хранилища.
    * */
   static unsetCurrent() {
-
+    window.localStorage.removeItem( 'user' );
   }
 
   /**
@@ -25,7 +28,15 @@ class User {
    * из локального хранилища
    * */
   static current() {
+    const currentUser = window.localStorage.user;
 
+    if (currentUser) {
+      try {
+        return JSON.parse(currentUser);
+      } catch {
+        return null;
+      }; 
+    };
   }
 
   /**
@@ -33,7 +44,7 @@ class User {
    * авторизованном пользователе.
    * */
   static fetch(callback) {
-
+    return createRequest({ method: 'GET', url: this.url + '/current', data, callback: callback }); // я не могу вызывать createRequest без data, а она не передается тут как аргумент
   }
 
   /**

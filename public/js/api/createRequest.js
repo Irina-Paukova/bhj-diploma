@@ -48,7 +48,8 @@ createRequest({
       mail: 'ivan@biz.pro',
       password: 'odinodin',
     },
-    method: 'POST',
+    method: 'GET',
+    callback: function() { console.log("ghghg") }
   });
 
 function encodeURL ( data ) {
