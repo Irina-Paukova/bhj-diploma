@@ -47,7 +47,7 @@ router.post("/register",upload.none(), function(request, response) {
 })
 
 //запрос авторизации пользователя
-router.post("/login",upload.none(), function(request, response) {
+router.get("/login",upload.none(), function(request, response) {
     const db = low(new FileSync('db.json'));// получение БД
     //получение параметров из запроса
     const { email, password } = request.body;

@@ -44,7 +44,7 @@ class User {
    * авторизованном пользователе.
    * */
   static fetch(callback) {
-    return createRequest({ method: 'GET', url: this.url + '/current', data, callback: callback }); // я не могу вызывать createRequest без data, а она не передается тут как аргумент
+    // return createRequest({ method: 'GET', url: this.url + '/current', data, callback: callback }); 
   }
 
   /**
@@ -56,7 +56,7 @@ class User {
   static login(data, callback) {
     createRequest({
       url: this.URL + '/login',
-      method: 'POST',
+      method: 'GET',
       responseType: 'json',
       data,
       callback: (err, response) => {
@@ -86,3 +86,5 @@ class User {
 
   }
 }
+
+

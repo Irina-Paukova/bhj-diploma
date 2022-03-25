@@ -3,58 +3,41 @@ const createRequest = ( options = {} ) => {
     const xhr = new XMLHttpRequest;
 
     if (!options.callback) {
-        options.callback = function() {};
+        options.callback = function() {console.log('нет коллбека')};
     };
+
+    let URL = options.url;
+    let data;
+
+    if ( options.method === 'GET' ) {
+        URL += encodeURL( options.data );
+
+    } else {
+        data = new FormData;
+        URL = options.url
+
+        for (const [key, value] of Object.entries(options.data)) {
+            data.append( `${key}`, `${value}` );
+        };
+    };
+
+    xhr.responseType = 'json';
 
     try {
-        let URL = options.url;
-
-        if ( options.method === 'GET' ) {
-            URL += encodeURL( options.data );
-
-            xhr.open( 'GET', `${URL}` );
-            xhr.responseType = 'json';
-            xhr.send();
-        } else {
-            const  formData = new FormData;
-
-            for (const [key, value] of Object.entries(options.data)) {
-                formData.append( `${key}`, `${value}` );
-                console.log(`${key}: ${value}`);
-            };
-
-            xhr.open( `${options.method}`, `${options.url}` );
-            xhr.responseType = 'json'; 
-            xhr.send( formData );  
-
-        };
-
-        if (xhr.readystatechange === 4) {
-            options.callback( null, xhr.response );
-        };
-
-    } catch(e) {
-        options.callback( e, xhr.response );
-        console.log(e);
+        xhr.open( `${options.method}`, `${URL}` );
+        xhr.send(data);
+    } catch(err) {
+        options.callback( err, xhr.response );
     };
 
-console.log(xhr);
-
+    xhr.addEventListener("load", function() {
+        options.callback( null, xhr.response );
+        console.log("All resources finished loading!");
+    });
 };
-
-createRequest({
-    url: '',
-    data: {
-      mail: 'ivan@biz.pro',
-      password: 'odinodin',
-    },
-    method: 'GET',
-    callback: function() { console.log("ghghg") }
-  });
 
 function encodeURL ( data ) {
     return '?' + Object.entries( data )
     .map(([ key, value ]) => `${ key }=${ value }` )
     .join( '&' );
 };
-
