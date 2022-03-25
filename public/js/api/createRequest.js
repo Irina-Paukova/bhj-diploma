@@ -1,4 +1,4 @@
-const createRequest = ( options = {} ) => {
+const createRequest = ( options = {data: {}} ) => {
 
     const xhr = new XMLHttpRequest;
 
@@ -10,14 +10,13 @@ const createRequest = ( options = {} ) => {
     let data;
 
     if ( options.method === 'GET' ) {
-        URL += encodeURL( options.data );
-
+        if(options.data) { URL += encodeURL( options.data )}
     } else {
         data = new FormData;
         URL = options.url
-
+        
         for (const [key, value] of Object.entries(options.data)) {
-            data.append( `${key}`, `${value}` );
+             data.append( `${key}`, `${value}` );
         };
     };
 
@@ -28,6 +27,7 @@ const createRequest = ( options = {} ) => {
         xhr.send(data);
     } catch(err) {
         options.callback( err, xhr.response );
+        console.log("Error")
     };
 
     xhr.addEventListener("load", function() {

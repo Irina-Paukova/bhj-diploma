@@ -11,8 +11,7 @@ class User {
    * локальном хранилище.
    * */
   static setCurrent(user) {
-    console.log(user)
-    window.localStorage.user = JSON.stringify(user);
+    localStorage.user = JSON.stringify(user);
   }
 
   /**
@@ -20,7 +19,7 @@ class User {
    * пользователе из локального хранилища.
    * */
   static unsetCurrent() {
-    window.localStorage.removeItem( 'user' );
+    localStorage.removeItem( 'user' );
   }
 
   /**
@@ -28,15 +27,9 @@ class User {
    * из локального хранилища
    * */
   static current() {
-    const currentUser = window.localStorage.user;
+    const currentUser = localStorage.getItem('user');
 
-    if (currentUser) {
-      try {
-        return JSON.parse(currentUser);
-      } catch {
-        return null;
-      }; 
-    };
+    return JSON.parse(currentUser);
   }
 
   /**
@@ -44,7 +37,7 @@ class User {
    * авторизованном пользователе.
    * */
   static fetch(callback) {
-    // return createRequest({ method: 'GET', url: this.url + '/current', data, callback: callback }); 
+    return createRequest({ method: 'GET', url: this.url + '/current', callback: callback }); 
   }
 
   /**
@@ -54,18 +47,18 @@ class User {
    * User.setCurrent.
    * */
   static login(data, callback) {
-    createRequest({
-      url: this.URL + '/login',
-      method: 'GET',
-      responseType: 'json',
-      data,
-      callback: (err, response) => {
-        if (response && response.user) {
-          this.setCurrent(response.user);
-        }
-        callback(err, response);
-      }
-    });
+    // createRequest({
+    //   url: this.URL + '/login',
+    //   method: 'GET',
+    //   responseType: 'json',
+    //   data,
+    //   callback: (err, response) => {
+    //     if (response && response.user) {
+    //       this.setCurrent(response.user);
+    //     }
+    //     callback(err, response);
+    //   }
+    // });
   }
 
   /**
