@@ -208,9 +208,3 @@ class App {
     this.getForm("createExpense").renderAccountsList();
   }
 }
-
-document.querySelector(".btn-primary").onclick = User.login({
-      email: 'ivan@poselok.ru',
-      password: 'odinodin'
-    }, ( err, response ) => {
-});

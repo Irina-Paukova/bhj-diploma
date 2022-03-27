@@ -11,7 +11,7 @@ class Entity {
    * (в зависимости от того, что наследуется от Entity)
    * */
   static list(data, callback) {
-    return createRequest({ method: 'GET', url: this.url, data, callback });
+    return createRequest({ method: 'GET', url: this.URL, data, callback });
   };
 
   /**
@@ -20,7 +20,7 @@ class Entity {
    * что наследуется от Entity)
    * */
   static create(data, callback) {
-    return createRequest({ method: 'PUT', url: this.url, data, callback });
+    return createRequest({ method: 'PUT', url: this.URL, data, callback });
   }
 
   /**
@@ -28,6 +28,6 @@ class Entity {
    * (в зависимости от того, что наследуется от Entity) 
    * */
   static remove(data, callback ) {
-    return createRequest({ method: 'DELETE', url: this.url, data, callback });
+    return createRequest({ method: 'DELETE', url: this.URL, data, callback });
   }
 }

@@ -38,6 +38,6 @@ class Sidebar {
 
     registerLink.addEventListener( 'click', () => App.getModal( 'register' ).open() );
     loginLink.addEventListener( 'click', () => App.getModal( 'login' ).open() );
-    logoutLink.addEventListener( 'click', () => User.logout() );
+    logoutLink.addEventListener( 'click', () => User.logout(() => {App.setState("init")}) );
   }
 }

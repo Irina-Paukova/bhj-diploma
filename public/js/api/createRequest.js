@@ -3,17 +3,18 @@ const createRequest = ( options = {data: {}} ) => {
     const xhr = new XMLHttpRequest;
 
     if (!options.callback) {
-        options.callback = function() {console.log('нет коллбека')};
+        options.callback = function() {
+            console.log('нет коллбека')
+        };
     };
 
     let URL = options.url;
     let data;
 
-    if ( options.method === 'GET' ) {
-        if(options.data) { URL += encodeURL( options.data )}
-    } else {
+    if ( options.method === 'GET' && options.data) {
+        URL += encodeURL( options.data )
+    } else if (options.data) {
         data = new FormData;
-        URL = options.url
         
         for (const [key, value] of Object.entries(options.data)) {
              data.append( `${key}`, `${value}` );
@@ -23,7 +24,7 @@ const createRequest = ( options = {data: {}} ) => {
     xhr.responseType = 'json';
 
     try {
-        xhr.open( `${options.method}`, `${URL}` );
+        xhr.open( options.method, URL );
         xhr.send(data);
     } catch(err) {
         options.callback( err, xhr.response );
