@@ -14,9 +14,9 @@ class UserWidget {
   constructor(element){
     if(!element) {
       throw new Error('Element not passedt');
-    } else {
-       this.element = element;
-    }
+    } 
+    
+    this.element = element;
   }
 
   /**

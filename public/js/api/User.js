@@ -79,7 +79,9 @@ class User {
       responseType: 'json',
       data,
       callback: (err, response) => {
-        this.setCurrent(response.user);
+        if(response && response.user) {
+          this.setCurrent(response.user);
+        }
         callback(err, response);
       }
     });

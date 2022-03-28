@@ -33,7 +33,6 @@ const createRequest = ( options = {data: {}} ) => {
 
     xhr.addEventListener("load", function() {
         options.callback( null, xhr.response );
-        console.log("All resources finished loading!");
     });
 };
 

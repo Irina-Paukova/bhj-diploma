@@ -13,6 +13,3 @@ class Account extends Entity {
     return createRequest({ method: 'GET', url: this.URL + "/" + id, callback });
   }
 }
-
-// return createRequest({ method: 'GET', url: this.url, data: data, callback: callback });
-// `${Account.URL}`
