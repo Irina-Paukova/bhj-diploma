@@ -78,14 +78,24 @@
       "id": "3"
     },
     {
-      "name": "Ирина",
+      "name": "Работа",
       "user_id": "69bbk8l186ukdn",
-      "id": "69b4wkl1axb0hq"
+      "id": "69b620l1bzo0kh"
     },
     {
-      "name": "gbfv",
+      "name": "Подработка",
       "user_id": "69bbk8l186ukdn",
-      "id": "69b1pgl1axbjap"
+      "id": "69b778l1bzokcq"
+    },
+    {
+      "name": "Отложенные",
+      "user_id": "69bbk8l186ukdn",
+      "id": "69b5zol1bzp58k"
+    },
+    {
+      "name": "От бабули",
+      "user_id": "69bbk8l186ukdn",
+      "id": "69b79cl1bzseyi"
     }
   ],
   "transactions": [
@@ -223,6 +233,33 @@
       "sum": 300000,
       "type": "expense",
       "user_id": "1"
+    },
+    {
+      "id": "69b1fcl1bzn1jp",
+      "type": "income",
+      "name": "Ирина",
+      "sum": 123,
+      "account_id": "69b4wkl1axb0hq",
+      "user_id": "69bbk8l186ukdn",
+      "created_at": "2022-03-29T10:20:17.940Z"
+    },
+    {
+      "id": "69b7y4l1bzydvm",
+      "type": "income",
+      "name": "Зп",
+      "sum": 123,
+      "account_id": "69b778l1bzokcq",
+      "user_id": "69bbk8l186ukdn",
+      "created_at": "2022-03-29T10:29:07.137Z"
+    },
+    {
+      "id": "69b78ol1c01mh2",
+      "type": "income",
+      "name": "Зп",
+      "sum": 123,
+      "account_id": "69b778l1bzokcq",
+      "user_id": "69bbk8l186ukdn",
+      "created_at": "2022-03-29T10:31:38.245Z"
     }
   ]
 }

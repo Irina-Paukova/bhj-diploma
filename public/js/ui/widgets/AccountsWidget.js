@@ -50,11 +50,12 @@ class AccountsWidget {
   update() {
     if(User.current()) {
       Account.list(User.current(), (err,response) => {
-        if(response) {
-          this.clear();
-          
-          response.data.map( item => this.renderItem(item));
+        if(!response) {
+          return;
         }
+        
+        this.clear();
+        response.data.map( item => this.renderItem(item));
       })
     }
   }
@@ -67,7 +68,7 @@ class AccountsWidget {
    * в боковой колонке
    * */
   clear() {
-    [...document.querySelectorAll( '.account' )].forEach(item => this.element.removeChild(item));
+    [...document.querySelectorAll('.account')].forEach(item => this.element.removeChild(item));
   }
 
   /**
