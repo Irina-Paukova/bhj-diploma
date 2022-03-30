@@ -44,8 +44,11 @@ class TransactionsPage {
    * */
 
   registerEvents() {
-    this.element.querySelector(".remove-account").addEventListener('click', () => this.removeAccount());
-    // this.element.querySelector(".transaction__remove").addEventListener( 'click', () => this.removeTransaction(User.current()));
+    this.element.querySelector(".remove-account").addEventListener( 'click', () => this.removeAccount());
+
+    
+
+    // this.element.querySelector(".transaction__remove").addEventListener( 'click', () => this.removeTransaction(User.current().id));
   }
 
   /**
@@ -62,7 +65,7 @@ class TransactionsPage {
       return;
     }
     
-    Account.remove(this.lastOptions, (err, response) => {
+    Account.remove( this.lastOptions, (err, response) => {
       if(!response) {
         return;
       }

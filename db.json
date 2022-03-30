@@ -83,11 +83,6 @@
       "id": "69b620l1bzo0kh"
     },
     {
-      "name": "Подработка",
-      "user_id": "69bbk8l186ukdn",
-      "id": "69b778l1bzokcq"
-    },
-    {
       "name": "Отложенные",
       "user_id": "69bbk8l186ukdn",
       "id": "69b5zol1bzp58k"
@@ -96,6 +91,11 @@
       "name": "От бабули",
       "user_id": "69bbk8l186ukdn",
       "id": "69b79cl1bzseyi"
+    },
+    {
+      "name": "fygf",
+      "user_id": "69bbk8l186ukdn",
+      "id": "69b1nsl1dt2xwu"
     }
   ],
   "transactions": [
@@ -278,6 +278,15 @@
       "account_id": "69b79cl1bzseyi",
       "user_id": "69bbk8l186ukdn",
       "created_at": "2022-03-30T11:15:49.346Z"
+    },
+    {
+      "id": "69b8pkl1drqgn8",
+      "type": "income",
+      "name": "1",
+      "sum": 1000,
+      "account_id": "69b5zol1bzp58k",
+      "user_id": "69bbk8l186ukdn",
+      "created_at": "2022-03-30T16:14:32.899Z"
     }
   ]
 }
