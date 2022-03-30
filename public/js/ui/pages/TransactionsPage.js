@@ -46,9 +46,11 @@ class TransactionsPage {
   registerEvents() {
     this.element.querySelector(".remove-account").addEventListener( 'click', () => this.removeAccount());
 
-    
-
-    // this.element.querySelector(".transaction__remove").addEventListener( 'click', () => this.removeTransaction(User.current().id));
+    this.element.addEventListener('click', (e) => {
+      if(e.target.closest('.transaction__remove')) {
+        this.removeTransaction(e.target.closest('.transaction__remove').dataset);
+      }
+    })
   }
 
   /**
@@ -91,8 +93,6 @@ class TransactionsPage {
       if(!response) {
         return;
       }
-
-      console.log(id);
 
       App.update();
     })
