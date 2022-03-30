@@ -244,22 +244,40 @@
       "created_at": "2022-03-29T10:20:17.940Z"
     },
     {
-      "id": "69b7y4l1bzydvm",
+      "id": "69b95gl1dgktsf",
       "type": "income",
-      "name": "Зп",
-      "sum": 123,
-      "account_id": "69b778l1bzokcq",
+      "name": "ЗП",
+      "sum": 10000,
+      "account_id": "69b620l1bzo0kh",
       "user_id": "69bbk8l186ukdn",
-      "created_at": "2022-03-29T10:29:07.137Z"
+      "created_at": "2022-03-30T11:02:14.223Z"
     },
     {
-      "id": "69b78ol1c01mh2",
-      "type": "income",
-      "name": "Зп",
-      "sum": 123,
-      "account_id": "69b778l1bzokcq",
+      "id": "69bblol1dgqbc2",
+      "type": "expense",
+      "name": "Дела",
+      "sum": 300,
+      "account_id": "69b620l1bzo0kh",
       "user_id": "69bbk8l186ukdn",
-      "created_at": "2022-03-29T10:31:38.245Z"
+      "created_at": "2022-03-30T11:06:30.241Z"
+    },
+    {
+      "id": "69bbngl1dh1s1s",
+      "type": "income",
+      "name": "На др",
+      "sum": 1000,
+      "account_id": "69b79cl1bzseyi",
+      "user_id": "69bbk8l186ukdn",
+      "created_at": "2022-03-30T11:15:25.119Z"
+    },
+    {
+      "id": "69ba1wl1dh2aqr",
+      "type": "income",
+      "name": "На жвачку",
+      "sum": 100,
+      "account_id": "69b79cl1bzseyi",
+      "user_id": "69bbk8l186ukdn",
+      "created_at": "2022-03-30T11:15:49.346Z"
     }
   ]
 }

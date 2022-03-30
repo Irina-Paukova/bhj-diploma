@@ -21,12 +21,8 @@ class CreateTransactionForm extends AsyncForm {
     this.select.innerHTML = "";
 
     Account.list( User.current(), (err,response) => {
-      response.data.map(item => this.renderItem(item));
+      response.data.map(item => this.select.insertAdjacentHTML('beforeend', `<option value="${item.id}">${item.name}</option>`));
     });
-  }
-
-  renderItem(item) {
-    this.select.insertAdjacentHTML('beforeend', `<option value="${item.id}">${item.name}</option>`);
   }
 
   /**
@@ -42,7 +38,8 @@ class CreateTransactionForm extends AsyncForm {
       }
 
       this.element.reset();
-      new Modal(this.element.closest('.modal')).close();
+      App.getModal("newExpense").close();
+      App.getModal("newIncome").close();
       App.update();
     })
   }
